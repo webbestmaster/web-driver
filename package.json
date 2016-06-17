@@ -1,5 +1,5 @@
 {
-  "name": "Selenium Web Sriver",
+  "name": "SeleniumWebSriver",
   "version": "0.0.1",
   "description": "Selenium Web Sriver",
   "license": "MIT",
@@ -10,7 +10,7 @@
 
   },
   "devDependencies": {
-    "selenium-webdriver": "~2.42.1"
+    "selenium-webdriver": "^2.42.1"
 
   }
 }
