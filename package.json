@@ -1,0 +1,16 @@
+{
+  "name": "Selenium Web Sriver",
+  "version": "0.0.1",
+  "description": "Selenium Web Sriver",
+  "license": "MIT",
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+
+  },
+  "devDependencies": {
+    "selenium-webdriver": "~2.42.1"
+
+  }
+}
