@@ -47,3 +47,10 @@ $./adb -s <serialId> shell am start -a android.intent.action.MAIN -n org.openqa.
 
 
 
+Finally, we need to expose this server to the Selenium clients running the tests adding a port forward. Identify a PC local port that is not in use and execute this command:
+adb -s <device-id> forward tcp:<pc-port> tcp:8080
+
+// here is java
+// <pc-ip> - you can use just 'localhost'
+DesiredCapabilities browser = DesiredCapabilities.android();
+WebDriver driver = new RemoteWebDriver(new URL("http://<pc-ip>:<pc-port>/wd/hub"), browser);
