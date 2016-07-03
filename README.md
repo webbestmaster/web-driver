@@ -17,7 +17,7 @@ how to run test on mobile device
 1.1 - if needed install KiesSetup.exe or Kies_3.2.14113_3.exe
 2 - download android SDK
 3 - connect device and PC
-4 - go to ~sdk\platform-tools\, there you will see 'adb.exe' file
+4 - go to ~sdk/platform-tools/, there you will see 'adb.exe' file
 5 - run from cmd 'adb devices' or '$./adb devices' to see list of connected devices, if list is empty install Keis (see 1.1)
 6 - run from cmd 'adb forward tcp:8080 tcp:8080' to listen :8080 (use the same port for webdriver host f.e 'http://localhost:8080/wd/hub' )
 
