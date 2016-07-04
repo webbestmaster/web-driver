@@ -37,20 +37,20 @@ Appendix
 Path to node interpreter /usr/local/bin/node
 
 Install apk to device from pc
-$./adb -s <serialId> -e install -r  android-server.apk
+$./adb -s \<serialId\> -e install -r  android-server.apk
 
 Start the Android WebDriver application through the UI of the device or by running this command:
-$./adb -s <serialId> shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
+$./adb -s \<serialId\> shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
 
 You can start the application in debug mode, which has more verbose logs by doing:
-$./adb -s <serialId> shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true
+$./adb -s \<serialId\> shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true
 
 
 
 Finally, we need to expose this server to the Selenium clients running the tests adding a port forward. Identify a PC local port that is not in use and execute this command:
-adb -s <device-id> forward tcp:<pc-port> tcp:8080
+adb -s \<device-id\> forward tcp:\<pc-port\> tcp:8080
 
 // here is java
-// <pc-ip> - you can use just 'localhost'
+// \<pc-ip\> - you can use just 'localhost'
 DesiredCapabilities browser = DesiredCapabilities.android();
-WebDriver driver = new RemoteWebDriver(new URL("http://<pc-ip>:<pc-port>/wd/hub"), browser);
+WebDriver driver = new RemoteWebDriver(new URL("http://\<pc-ip\>:\<pc-port\>/wd/hub"), browser);
