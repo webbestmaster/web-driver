@@ -3,7 +3,7 @@ var Test = require('./../tools/test-wrapper'),
 	test = new Test({
 		src: testSrc_1,
 		driver: {
-			// server: 'http://localhost:8080/wd/hub'
+			server: 'http://localhost:8080/wd/hub'
 		}
 	});
 

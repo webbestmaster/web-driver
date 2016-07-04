@@ -45,7 +45,8 @@ $./adb -s \<serialId\> shell am start -a android.intent.action.MAIN -n org.openq
 You can start the application in debug mode, which has more verbose logs by doing:
 $./adb -s \<serialId\> shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity -e debug true
 
-
+You can close the application:
+$./adb shell am force-stop org.openqa.selenium.android.app
 
 Finally, we need to expose this server to the Selenium clients running the tests adding a port forward. Identify a PC local port that is not in use and execute this command:
 adb -s \<device-id\> forward tcp:\<pc-port\> tcp:8080
