@@ -1,14 +1,18 @@
 "use strict";
 
 var WebDriver = require('selenium-webdriver'),
-	driverConfig = require('./driver-config');
+	driverConfig = require('./driver-config'),
+	util = require('./util');
 	// By = WebDriver.By,
 	// until = WebDriver.until;
 
 
 /**
- * @options 	-> .server			- will use as parameter for WebDriver.usingServer(options.server) 				- optional
- * 			-> .capabilities 	- will use as parameter for WebDriver.withCapabilities(options.capabilities)	- optional
+ * @options -> .server (optional)		- will use as parameter for WebDriver.usingServer(options.server) 				- optional
+ * 			-> .capabilities (optional)	- will use as parameter for WebDriver.withCapabilities(options.capabilities)	- optional
+ *			-> .window (optional)	-> size (optional) 		-> .x, .y - position of window
+ *									->	position (optional)	-> .width, .height - width and height of window
+ *
  *
  * */
 
@@ -31,15 +35,23 @@ Driver.prototype.initialize = function (optionsArg) {
 
 	var driver = this,
 		options = optionsArg || {},
-		webDriver;
+		webDriver,
+		webDriverWindow,
+		windowConfig;
 
 	// extend options by driverConfig if needed
-	Object.keys(driverConfig).forEach(function (key) {
-		return options.hasOwnProperty(key) || (options[key] = driverConfig[key]);
-	});
+	options = util.merge({}, driverConfig, options, true);
 
-	webDriver = new WebDriver.Builder().usingServer(options.server).withCapabilities(options.capabilities).build();
+	webDriver = new WebDriver
+		.Builder()
+		.usingServer(options.server)
+		.withCapabilities(options.capabilities)
+		.build();
 
+	windowConfig = options.window;
+	webDriverWindow = webDriver.manage().window();
+	webDriverWindow.setPosition(windowConfig.x, windowConfig.y);
+	webDriverWindow.setSize(windowConfig.width, windowConfig.height);
 
 	driver.set(driver.KEYS.OPTIONS, options);
 	driver.set(driver.KEYS.DRIVER, webDriver);
