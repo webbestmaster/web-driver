@@ -2,6 +2,7 @@
 
 var WebDriver = require('selenium-webdriver'),
 	driverConfig = require('./driver-config'),
+	driverInfo = require('./driver-info'),
 	util = require('./util');
 	// By = WebDriver.By,
 	// until = WebDriver.until;
@@ -48,10 +49,14 @@ Driver.prototype.initialize = function (optionsArg) {
 		.withCapabilities(options.capabilities)
 		.build();
 
-	windowConfig = options.window;
-	webDriverWindow = webDriver.manage().window();
-	webDriverWindow.setPosition(windowConfig.x, windowConfig.y);
-	webDriverWindow.setSize(windowConfig.width, windowConfig.height);
+	// check driver running on desktop
+	if (!options.server || options.server.search(driverInfo.mobile.pathName) === -1) {
+		// set window position for desktop
+		windowConfig = options.window;
+		webDriverWindow = webDriver.manage().window();
+		webDriverWindow.setPosition(windowConfig.x, windowConfig.y);
+		webDriverWindow.setSize(windowConfig.width, windowConfig.height);
+	}
 
 	driver.set(driver.KEYS.OPTIONS, options);
 	driver.set(driver.KEYS.DRIVER, webDriver);
