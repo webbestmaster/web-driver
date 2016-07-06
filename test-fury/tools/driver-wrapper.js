@@ -106,6 +106,8 @@ Driver.prototype.waitAndClick = function (selector) {
 			webDriver
 				.findElement(driver.By.css(selector))
 				.then(function (elem) {
+					// TODO: detect how to work isPresented()
+					// return elem.isPresented();
 					return elem.isDisplayed();
 				})
 				.then(function (isDisplayed) {
