@@ -92,6 +92,7 @@ Driver.prototype.open = function (url) {
 };
 
 Driver.prototype.By = WebDriver.By;
+Driver.prototype.Key = WebDriver.Key;
 
 Driver.prototype.waitAndClick = function (selector) {
 

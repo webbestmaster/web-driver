@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-cd ~/Android/Sdk/platform-tools/
+unamestr=`uname`
+#adbPath="$reportsFolder/lcov-report/index.html"
+if [[ "$unamestr" == 'Darwin' ]]; then # detect MacOS
+   adbPath=~/Library/Android/sdk/platform-tools/
+elif [[ "$unamestr" == 'Linux' ]]; then # detect Linux
+   adbPath=~/Android/Sdk/platform-tools/
+fi
 
-sleep 3
+cd $adbPath
 
 ./adb forward --remove-all
 
@@ -11,17 +17,25 @@ array='2316a994 4df1f33c5a199f87'
 
 function runTest {
 
+    deviceId=$1
+    devicePort=808$2
+
     # bind devices by ports
-    ./adb -s $1 forward tcp:808$2 tcp:8080
+    ./adb -s $deviceId forward tcp:$devicePort tcp:8080
 
     # install webDriver apk
-    #./adb -s ${i} -e install -r ~/master-git/web-driver/tools/android-server-2.21.0.apk
+#    ./adb -s $deviceId install -r ~/master-git/web-driver/tools/android-server-2.21.0.apk
 
-    ./adb -s $1 shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
+    # install webDriver apk into emulator, this way is not tested
+#    ./adb -s $deviceId -e install -r ~/master-git/web-driver/tools/android-server-2.21.0.apk
 
-    node ~/master-git/web-driver/test-fury/test/test-starter 808$2
+    ./adb -s $deviceId shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
 
-    ./adb -s $1 shell am force-stop org.openqa.selenium.android.app
+    node ~/master-git/web-driver/test-fury/test/test-starter $devicePort
+
+    ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
+
+    ./adb -s $deviceId shell am force-stop org.openqa.selenium.android.app
 
 }
 

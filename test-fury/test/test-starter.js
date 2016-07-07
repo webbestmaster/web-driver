@@ -1,7 +1,7 @@
 var argv = process.argv,
 	Test = require('./../tools/test-wrapper'),
 	driverInfo = require('./../tools/driver-info'),
-	testSrc_1 = require('./test-src-1'),
+	testSrc_1 = require('./test-src-2'),
 	test = new Test({
 		src: testSrc_1,
 		driver: {

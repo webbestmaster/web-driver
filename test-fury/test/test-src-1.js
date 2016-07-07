@@ -7,7 +7,8 @@ module.exports = {
 	steps: {
 		'first step': function (driver) {
 
-			driver.open('http://192.168.100.2:3000/');
+			// driver.open('http://192.168.100.2:3000/');
+			driver.open('http://brodboksen.no/');
 			// driver.sleep(10e3);
 			driver.waitAndClick('#home-button>.login');
 			driver.sleep(3e3);
