@@ -36,18 +36,20 @@ function runTest {
 
 #    ./adb -s $deviceId shell input touchscreen swipe 930 880 930 380 #Swipe UP
 
+    ./adb -s $deviceId shell am kill org.openqa.selenium.android.app
+    ./adb -s $deviceId shell am kill-all
     ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
 
+
+
     ./adb -s $deviceId shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
-
     node ~/master-git/web-driver/test-fury/test/test-starter $devicePort
-
     ./adb -s $deviceId shell am force-stop org.openqa.selenium.android.app
 
-#    ./adb -s $deviceId shell am kill org.openqa.selenium.android.app
 
-#    ./adb -s $deviceId shell am kill-all
 
+    ./adb -s $deviceId shell am kill org.openqa.selenium.android.app
+    ./adb -s $deviceId shell am kill-all
     ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
 
 }
@@ -56,7 +58,7 @@ index=0
 
 for i in $array; do
 
-    runTest ${i} $index &
+    runTest ${i} $index
 
     ((index++))
 
