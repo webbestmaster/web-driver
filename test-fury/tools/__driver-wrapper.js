@@ -94,7 +94,7 @@ Driver.prototype.open = function (url) {
 Driver.prototype.By = WebDriver.By;
 Driver.prototype.Key = WebDriver.Key;
 
-Driver.prototype.waitAndClick = function (selector) {
+Driver.prototype.waitAndClick = function (selector, cb) {
 
 	var driver = this,
 		webDriver = driver.getWebDriver();
@@ -114,8 +114,7 @@ Driver.prototype.waitAndClick = function (selector) {
 				.then(function (isDisplayed) {
 					return isDisplayed && webDriver.findElement(driver.By.css(selector)).click();
 				})
-				.then(function () {
-				}, wait),
+				.then(cb, wait),
 			1e3
 		);
 

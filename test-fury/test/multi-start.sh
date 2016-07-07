@@ -12,7 +12,10 @@ cd $adbPath
 
 ./adb forward --remove-all
 
-array='2316a994 4df1f33c5a199f87'
+./adb devices
+
+array='2316a994 014E1E291901300D 4df1f33c5a199f87'
+#array='2316a994 4df1f33c5a199f87'
 #array='09eef7df'
 
 function runTest {
@@ -29,13 +32,23 @@ function runTest {
     # install webDriver apk into emulator, this way is not tested
 #    ./adb -s $deviceId -e install -r ~/master-git/web-driver/tools/android-server-2.21.0.apk
 
+#    ./adb -s $deviceId shell input keyevent 26 #Pressing the lock button
+
+#    ./adb -s $deviceId shell input touchscreen swipe 930 880 930 380 #Swipe UP
+
+    ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
+
     ./adb -s $deviceId shell am start -a android.intent.action.MAIN -n org.openqa.selenium.android.app/.MainActivity
 
     node ~/master-git/web-driver/test-fury/test/test-starter $devicePort
 
-    ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
-
     ./adb -s $deviceId shell am force-stop org.openqa.selenium.android.app
+
+#    ./adb -s $deviceId shell am kill org.openqa.selenium.android.app
+
+#    ./adb -s $deviceId shell am kill-all
+
+    ./adb -s $deviceId shell pm clear org.openqa.selenium.android.app
 
 }
 

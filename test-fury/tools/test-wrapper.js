@@ -1,6 +1,9 @@
 "use strict";
 
-var Driver = require('./driver-wrapper');
+var WebDriver = require('selenium-webdriver'),
+	driverConfig = require('./driver-config'),
+	driverInfo = require('./driver-info'),
+	util = require('./util');
 
 /**
 * @options 	-> .src 	- test src
@@ -20,7 +23,8 @@ function Test(options) {
 
 Test.prototype.KEYS = {
 	SRC: 'test:src',
-	DRIVER: 'test:driver'
+	DRIVER: 'test:driver',
+	DRIVER_OPTIONS: 'test:driver-options'
 	// DRIVER_OPTIONS: 'test:driver-options'
 };
 
@@ -29,9 +33,41 @@ Test.prototype.initialize = function (options) {
 	var test = this;
 
 	test.set(test.KEYS.SRC, options.src);
-	test.set(test.KEYS.DRIVER, new Driver(options.driver));
+	test.initializeDriver(options.driver);
 
 };
+
+Test.prototype.initializeDriver = function (optionsArg) {
+
+	var test = this,
+		options = optionsArg || {},
+		webDriver,
+		webDriverWindow,
+		windowConfig;
+
+	// extend options by driverConfig if needed
+	options = util.merge({}, driverConfig, options, true);
+
+	webDriver = new WebDriver
+		.Builder()
+		.usingServer(options.server)
+		.withCapabilities(options.capabilities)
+		.build();
+
+	// check driver running on desktop
+	if (!options.server || options.server.search(driverInfo.mobile.pathName) === -1) {
+		// set window position for desktop
+		windowConfig = options.window;
+		webDriverWindow = webDriver.manage().window();
+		webDriverWindow.setPosition(windowConfig.x, windowConfig.y);
+		webDriverWindow.setSize(windowConfig.width, windowConfig.height);
+	}
+
+	test.set(test.KEYS.DRIVER, webDriver);
+	test.set(test.KEYS.DRIVER_OPTIONS, options);
+
+};
+
 
 Test.prototype.run = function (step) {
 
@@ -39,7 +75,7 @@ Test.prototype.run = function (step) {
 		testSrc = test.get(test.KEYS.SRC),
 		driver = test.get(test.KEYS.DRIVER);
 
-	testSrc.steps[step](driver);
+	testSrc.steps[step].apply(driver);
 
 };
 
