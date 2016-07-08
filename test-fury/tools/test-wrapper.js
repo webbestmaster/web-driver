@@ -1,9 +1,16 @@
 "use strict";
 
 var WebDriver = require('selenium-webdriver'),
+	chrome = require('selenium-webdriver/chrome'),
 	driverConfig = require('./driver-config'),
 	driverInfo = require('./driver-info'),
-	util = require('./util');
+	util = require('./util'),
+	chromeOptions = new chrome.Options();
+
+chromeOptions.addArguments(['test-type']);
+
+// chromeOptions.addArguments(['user-agent="YOUR_USER_AGENT"']);
+
 
 /**
 * @options 	-> .src 	- test src
@@ -51,7 +58,7 @@ Test.prototype.initializeDriver = function (optionsArg) {
 	webDriver = new WebDriver
 		.Builder()
 		.usingServer(options.server)
-		.withCapabilities(options.capabilities)
+		.withCapabilities(chromeOptions.toCapabilities())
 		.build();
 
 	// check driver running on desktop
@@ -69,13 +76,17 @@ Test.prototype.initializeDriver = function (optionsArg) {
 };
 
 
-Test.prototype.run = function (step) {
+Test.prototype.run = function (step, fnArgs) {
 
 	var test = this,
 		testSrc = test.get(test.KEYS.SRC),
 		driver = test.get(test.KEYS.DRIVER);
 
-	testSrc.steps[step].apply(driver);
+	fnArgs = fnArgs || [];
+
+	fnArgs.push(WebDriver);
+
+	testSrc.steps[step].apply(driver, fnArgs);
 
 };
 

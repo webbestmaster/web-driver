@@ -14,7 +14,7 @@ cd $adbPath
 
 ./adb devices
 
-array='2316a994 014E1E291901300D 4df1f33c5a199f87'
+array='2316a994 014E1E291901300D 4df1f33c5a199f87 1a5cbac4';
 #array='2316a994 4df1f33c5a199f87'
 #array='09eef7df'
 

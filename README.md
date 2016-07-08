@@ -1,3 +1,7 @@
+add options for all browsers - chrome = require('selenium-webdriver/chrome')
+
+
+
 
 urlPostfix - add postfix after url (default: '') - f.e. urlPostfix=?tablet=1
 url - push custom url instead default url (default: 'http://gala-bingo/') - f.e. url=http://m.galabingo.com

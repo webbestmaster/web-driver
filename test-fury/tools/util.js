@@ -40,6 +40,12 @@ var util = {
 
 	}
 
+	// toArray: function (likeArray) {
+	//
+	// 	return Array.prototype.slice.call(likeArray);
+	//
+	// }
+
 };
 
 module.exports = util;
