@@ -90,6 +90,19 @@ Test.prototype.run = function (step, fnArgs) {
 
 };
 
+Test.prototype.runSrc = function (testSrc, step, fnArgs) {
+
+	var test = this,
+		driver = test.get(test.KEYS.DRIVER);
+
+	fnArgs = fnArgs || [];
+
+	fnArgs.push(WebDriver);
+
+	testSrc.steps[step].apply(driver, fnArgs);
+
+};
+
 Test.prototype.set = function (key, value) {
 	this.attr[key] = value;
 };

@@ -1,11 +1,13 @@
 var argv = process.argv,
 	Test = require('./../tools/test-wrapper'),
 	driverInfo = require('./../tools/driver-info'),
-	testSrc_1 = require('./clear-test-vk'),
+	testSrc = require('./clear-test-vk'),
+	testGoogle = require('./google'),
 	test = new Test({
-		src: testSrc_1,
+		// src: testGoogle,
 		driver: {
-			server: driverInfo.getServerUrl(8080),
+			// server: driverInfo.getServerUrl(8080),
+			server: driverInfo.getServerUrl(),
 			window: {
 				x: 50,
 				y: 50,
@@ -15,4 +17,7 @@ var argv = process.argv,
 		}
 	});
 
-test.run('first_step');
+// test.run('login');
+test.runSrc(testGoogle, 'login');
+
+
