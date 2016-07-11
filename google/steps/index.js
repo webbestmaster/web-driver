@@ -1,3 +1,3 @@
 module.exports = {
-	register: require('./steps/register')
+	register: require('./src/register')
 };

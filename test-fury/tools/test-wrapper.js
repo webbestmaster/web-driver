@@ -79,14 +79,9 @@ Test.prototype.initializeDriver = function (optionsArg) {
 Test.prototype.run = function (step, fnArgs) {
 
 	var test = this,
-		testSrc = test.get(test.KEYS.SRC),
-		driver = test.get(test.KEYS.DRIVER);
+		testSrc = test.get(test.KEYS.SRC);
 
-	fnArgs = fnArgs || [];
-
-	fnArgs.push(WebDriver);
-
-	testSrc.steps[step].apply(driver, fnArgs);
+	test.runSrc(testSrc, step, fnArgs);
 
 };
 
