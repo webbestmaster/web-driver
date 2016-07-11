@@ -1,6 +1,8 @@
 "use strict";
 
 var selectors = {
+	loginButtom: '#gb_70',
+	linkSignup: '#link-signup',
 	firstName: '#FirstName',
 	lastName: '#LastName',
 	gmailAddress: '#GmailAddress',
@@ -25,9 +27,24 @@ module.exports = {
 
 			var regData = util.getRawBotData();
 
-			driver.get('https://accounts.google.com/SignUp');
+			driver.get('https://www.google.com');
 
+			driver.findElement(WebDriver.By.css(selectors.loginButtom)).click();
+
+			driver.wait(
+				function () { return driver.isElementPresent(WebDriver.By.css(selectors.linkSignup)); },
+				10e3
+			);
+			driver.findElement(WebDriver.By.css(selectors.linkSignup)).click();
+
+			// driver.get('https://accounts.google.com/SignUp');
+
+			driver.wait(
+				function () { return driver.isElementPresent(WebDriver.By.css(selectors.firstName)); },
+				10e3
+			);
 			driver.findElement(WebDriver.By.css(selectors.firstName)).sendKeys(regData.name.en.first);
+
 			driver.findElement(WebDriver.By.css(selectors.lastName)).sendKeys(regData.name.en.last);
 			driver.findElement(WebDriver.By.css(selectors.gmailAddress)).sendKeys(
 				regData.name.en.first + '.' + regData.name.en.last + regData.year
