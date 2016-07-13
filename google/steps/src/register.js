@@ -21,59 +21,59 @@ module.exports = {
 	description: 'description for best test',
 	tags: ['best', 'cool', 'perfect'],
 	steps: {
-		'register': function (util, WebDriver) {
+		'register': function (googleUtil, testUtil) {
 
 			var driver = this;
 
-			var regData = util.getRawBotData();
+			var regData = googleUtil.getRawBotData();
 
 			driver.get('https://www.google.com');
 
-			driver.findElement(WebDriver.By.css(selectors.loginButtom)).click();
+			driver.findElement(testUtil.By.css(selectors.loginButtom)).click();
 
 			driver.wait(
-				function () { return driver.isElementPresent(WebDriver.By.css(selectors.linkSignup)); },
+				function () { return driver.isElementPresent(testUtil.By.css(selectors.linkSignup)); },
 				10e3
 			);
-			driver.findElement(WebDriver.By.css(selectors.linkSignup)).click();
+			driver.findElement(testUtil.By.css(selectors.linkSignup)).click();
 
 			// driver.get('https://accounts.google.com/SignUp');
 
 			driver.wait(
-				function () { return driver.isElementPresent(WebDriver.By.css(selectors.firstName)); },
+				function () { return driver.isElementPresent(testUtil.By.css(selectors.firstName)); },
 				10e3
 			);
-			driver.findElement(WebDriver.By.css(selectors.firstName)).sendKeys(regData.name.en.first);
+			driver.findElement(testUtil.By.css(selectors.firstName)).sendKeys(regData.name.en.first);
 
-			driver.findElement(WebDriver.By.css(selectors.lastName)).sendKeys(regData.name.en.last);
-			driver.findElement(WebDriver.By.css(selectors.gmailAddress)).sendKeys(
+			driver.findElement(testUtil.By.css(selectors.lastName)).sendKeys(regData.name.en.last);
+			driver.findElement(testUtil.By.css(selectors.gmailAddress)).sendKeys(
 				regData.name.en.first + '.' + regData.name.en.last + regData.year
 			);
 
-			driver.findElement(WebDriver.By.css(selectors.passwd)).sendKeys(regData.pass);
-			driver.findElement(WebDriver.By.css(selectors.passwdAgain)).sendKeys(regData.pass);
+			driver.findElement(testUtil.By.css(selectors.passwd)).sendKeys(regData.pass);
+			driver.findElement(testUtil.By.css(selectors.passwdAgain)).sendKeys(regData.pass);
 
-			driver.findElement(WebDriver.By.css(selectors.birthDay)).sendKeys(regData.day);
-			driver.findElement(WebDriver.By.css(selectors.birthYear)).sendKeys(regData.year);
+			driver.findElement(testUtil.By.css(selectors.birthDay)).sendKeys(regData.day);
+			driver.findElement(testUtil.By.css(selectors.birthYear)).sendKeys(regData.year);
 
-			driver.findElement(WebDriver.By.css(selectors.monthLabel)).click();
-			driver.findElements(WebDriver.By.css(selectors.monthLabel + ' ' + selectors.option)).then(function (elems) {
+			driver.findElement(testUtil.By.css(selectors.monthLabel)).click();
+			driver.findElements(testUtil.By.css(selectors.monthLabel + ' ' + selectors.option)).then(function (elems) {
 				elems[regData.month - 1].click();
 			});
 
-			driver.findElement(WebDriver.By.css(selectors.gender)).click();
-			driver.findElements(WebDriver.By.css(selectors.gender + ' ' + selectors.option)).then(function (elems) {
+			driver.findElement(testUtil.By.css(selectors.gender)).click();
+			driver.findElements(testUtil.By.css(selectors.gender + ' ' + selectors.option)).then(function (elems) {
 				elems[1].click();
 			});
 
-			driver.findElement(WebDriver.By.css(selectors.submitbutton)).click();
+			driver.findElement(testUtil.By.css(selectors.submitbutton)).click();
 
 			// submit terms, google's hack
 			driver.executeScript('submitForm()');
 
 			console.log(regData);
 
-			// util.addToUsers(regData);
+			// testUtil.addToUsers(regData);
 
 			// driver.sleep(5000);
 			// driver.quit();

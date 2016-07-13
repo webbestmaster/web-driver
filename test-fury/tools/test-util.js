@@ -1,6 +1,13 @@
 "use strict";
 
-var util = {
+var WebDriver = require('selenium-webdriver');
+
+var testUtil = {
+
+	WebDriver: WebDriver,
+
+	By: WebDriver.By,
+	Key: WebDriver.Key,
 
 	merge: function merge() {
 
@@ -48,4 +55,4 @@ var util = {
 
 };
 
-module.exports = util;
+module.exports = testUtil;

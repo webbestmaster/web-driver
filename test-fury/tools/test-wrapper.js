@@ -4,7 +4,7 @@ var WebDriver = require('selenium-webdriver'),
 	chrome = require('selenium-webdriver/chrome'),
 	driverConfig = require('./driver-config'),
 	driverInfo = require('./driver-info'),
-	util = require('./util'),
+	testUtil = require('./test-util'),
 	chromeOptions = new chrome.Options();
 
 chromeOptions.addArguments(['test-type']);
@@ -44,6 +44,15 @@ Test.prototype.initialize = function (options) {
 
 };
 
+/**
+* .server - url of server
+* .window -> window size and position - string - optional
+* 			-> x - number
+ * 			-> y - number
+ * 			-> width - number
+ * 			-> height - number
+* */
+
 Test.prototype.initializeDriver = function (optionsArg) {
 
 	var test = this,
@@ -53,7 +62,7 @@ Test.prototype.initializeDriver = function (optionsArg) {
 		windowConfig;
 
 	// extend options by driverConfig if needed
-	options = util.merge({}, driverConfig, options, true);
+	options = testUtil.merge({}, driverConfig, options, true);
 
 	webDriver = new WebDriver
 		.Builder()
@@ -92,7 +101,7 @@ Test.prototype.runSrc = function (testSrc, step, fnArgs) {
 
 	fnArgs = fnArgs || [];
 
-	fnArgs.push(WebDriver);
+	fnArgs.push(testUtil);
 
 	testSrc.steps[step].apply(driver, fnArgs);
 
