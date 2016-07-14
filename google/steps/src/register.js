@@ -25,6 +25,28 @@ module.exports = {
 
 			var driver = this;
 
+/*
+			// override driver.findElement
+			// to add human's behavior
+			(function () {
+
+				var nativeFindElement = driver.findElement;
+				driver.findElement = function () {
+
+					var driver  = this,
+						min = 5,
+						max = 15,
+						sleepTime = Math.random() * (max - min) + min;
+
+					driver.sleep(sleepTime * 1e3);
+
+					return nativeFindElement.apply(driver, arguments);
+
+				};
+
+			}());
+
+*/
 			var regData = googleUtil.getRawBotData();
 
 			driver.get('https://www.google.com');
