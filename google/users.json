@@ -1,1 +1,24 @@
-[]
+[
+
+  {
+    "name": {
+      "en": {
+        "first": "Fix",
+        "last": "Miller",
+        "father": ""
+      },
+      "ru": {
+        "first": "Фикс",
+        "last": "Миллер",
+        "father": ""
+      }
+    },
+    "mail": "i.am.fox.miller@gmail.com",
+    "day": 1,
+    "month": 1,
+    "year": 1970,
+    "pass": "qwertyasd"
+  },
+
+
+]
