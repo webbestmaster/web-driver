@@ -13,12 +13,34 @@
         "father": ""
       }
     },
+    "sex": "m",
     "mail": "i.am.fox.miller@gmail.com",
     "day": 1,
     "month": 1,
     "year": 1970,
     "pass": "qwertyasd"
   },
+
+  {
+    "name": {
+      "en": {
+        "first": "Leonard",
+        "last": "Rukol",
+        "father": ""
+      },
+      "ru": {
+        "first": "Леонард",
+        "last": "Рукол",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "lenard.rukol@gmail.com",
+    "day": 3,
+    "month": 3,
+    "year": 1983,
+    "pass": "qwerty5678"
+  }
 
 
 ]
