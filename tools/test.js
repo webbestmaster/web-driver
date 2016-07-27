@@ -29,7 +29,7 @@ function Test(options) {
 }
 
 Test.prototype.KEYS = {
-	SRC: 'test:src',
+	// SRC: 'test:src',
 	DRIVER: 'test:driver',
 	DRIVER_OPTIONS: 'test:driver-options'
 	// DRIVER_OPTIONS: 'test:driver-options'
@@ -39,7 +39,6 @@ Test.prototype.initialize = function (options) {
 
 	var test = this;
 
-	test.set(test.KEYS.SRC, options.src);
 	test.initializeDriver(options.driver);
 
 };
@@ -48,9 +47,9 @@ Test.prototype.initialize = function (options) {
 * .server - url of server
 * .window -> window size and position - string - optional
 * 			-> x - number
- * 			-> y - number
- * 			-> width - number
- * 			-> height - number
+* 			-> y - number
+* 			-> width - number
+* 			-> height - number
 * */
 
 Test.prototype.initializeDriver = function (optionsArg) {
@@ -84,27 +83,14 @@ Test.prototype.initializeDriver = function (optionsArg) {
 
 };
 
-
-Test.prototype.run = function (step, fnArgs) {
-
-	var test = this,
-		testSrc = test.get(test.KEYS.SRC);
-
-	test.runSrc(testSrc, step, fnArgs);
-
+Test.prototype.run = function (testSrc, step, fnArgs) {
+	fnArgs = fnArgs ? [fnArgs] : [];
+	testSrc.steps[step].apply(this, fnArgs);
 };
 
-Test.prototype.runSrc = function (testSrc, step, fnArgs) {
-
-	var test = this,
-		driver = test.get(test.KEYS.DRIVER);
-
-	fnArgs = fnArgs || [];
-
-	fnArgs.push(testUtil);
-
-	testSrc.steps[step].apply(driver, fnArgs);
-
+Test.prototype.getDriver = function () {
+	var test = this;
+	return test.get(test.KEYS.DRIVER);
 };
 
 Test.prototype.set = function (key, value) {
