@@ -40,6 +40,28 @@
     "month": 3,
     "year": 1983,
     "pass": "qwerty5678"
+  },
+
+
+  {
+    "name": {
+      "en": {
+        "first": "",
+        "last": "",
+        "father": ""
+      },
+      "ru": {
+        "first": "",
+        "last": "",
+        "father": ""
+      }
+    },
+    "sex": "",
+    "mail": "",
+    "day": 0,
+    "month": 0,
+    "year": 0,
+    "pass": ""
   }
 
 
