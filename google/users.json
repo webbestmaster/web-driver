@@ -42,6 +42,26 @@
     "pass": "qwerty5678"
   },
 
+  {
+    "name": {
+      "en": {
+        "first": "Kate",
+        "last": "Pyly",
+        "father": ""
+      },
+      "ru": {
+        "first": "Кейт",
+        "last": "Пайли",
+        "father": ""
+      }
+    },
+    "sex": "f",
+    "mail": "kate.pyly@gmail.com",
+    "day": 3,
+    "month": 3,
+    "year": 1986,
+    "pass": "union13#"
+  },
 
   {
     "name": {
@@ -63,6 +83,5 @@
     "year": 0,
     "pass": ""
   }
-
 
 ]
