@@ -66,6 +66,30 @@
   {
     "name": {
       "en": {
+        "first": "Lucia",
+        "last": "Beluchi",
+        "father": ""
+      },
+      "ru": {
+        "first": "Люсия",
+        "last": "Белучи",
+        "father": ""
+      }
+    },
+    "sex": "f",
+    "mail": "lucia.beluchi.1985@gmail.com",
+    "day": 5,
+    "month": 5,
+    "year": 1985,
+    "pass": "qwerty1985#"
+  },
+
+
+
+
+  {
+    "name": {
+      "en": {
         "first": "",
         "last": "",
         "father": ""
@@ -83,5 +107,6 @@
     "year": 0,
     "pass": ""
   }
+
 
 ]
