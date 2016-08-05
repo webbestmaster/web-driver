@@ -105,6 +105,28 @@
     "pass": "3456erty"
   },
 
+  {
+    "name": {
+      "en": {
+        "first": "Nick",
+        "last": "Varinovich",
+        "father": ""
+      },
+      "ru": {
+        "first": "Ник",
+        "last": "Варинович",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "nick.varinovich@gmail.com",
+    "day": 6,
+    "month": 6,
+    "year": 1986,
+    "pass": "qwert098"
+  },
+
+
 
 
 
