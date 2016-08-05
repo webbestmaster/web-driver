@@ -84,6 +84,29 @@
     "pass": "qwerty1985#"
   },
 
+  {
+    "name": {
+      "en": {
+        "first": "Smulik",
+        "last": "Goldsberg",
+        "father": ""
+      },
+      "ru": {
+        "first": "Шмулик",
+        "last": "Голдсберг",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "smulik.goldsberg@gmail.com",
+    "day": 5,
+    "month": 5,
+    "year": 1985,
+    "pass": "3456erty"
+  },
+
+
+
 
 
 
