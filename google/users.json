@@ -126,6 +126,26 @@
     "pass": "qwert098"
   },
 
+  {
+    "name": {
+      "en": {
+        "first": "Mila",
+        "last": "Lither",
+        "father": ""
+      },
+      "ru": {
+        "first": "Мила",
+        "last": "Лайтер",
+        "father": ""
+      }
+    },
+    "sex": "f",
+    "mail": "mila.my.little.pony@gmail.com",
+    "day": 3,
+    "month": 3,
+    "year": 1983,
+    "pass": "qwerty09876"
+  },
 
 
 
