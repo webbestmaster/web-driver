@@ -147,6 +147,26 @@
     "pass": "qwerty09876"
   },
 
+  {
+    "name": {
+      "en": {
+        "first": "Nick",
+        "last": "Pevel",
+        "father": ""
+      },
+      "ru": {
+        "first": "Ник",
+        "last": "Певел",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "nick.pevel@gmail.com",
+    "day": 3,
+    "month": 4,
+    "year": 1985,
+    "pass": "poiu123#"
+  },
 
 
 
