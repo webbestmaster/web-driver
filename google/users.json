@@ -168,9 +168,26 @@
     "pass": "poiu123#"
   },
 
-
-
-
+  {
+    "name": {
+      "en": {
+        "first": "Mika",
+        "last": "Gelden",
+        "father": ""
+      },
+      "ru": {
+        "first": "Мика",
+        "last": "Гелден",
+        "father": ""
+      }
+    },
+    "sex": "",
+    "mail": "mika.gelden@gmail.com",
+    "day": 0,
+    "month": 0,
+    "year": 0,
+    "pass": "asdfg12345#"
+  },
 
   {
     "name": {
@@ -186,7 +203,7 @@
       }
     },
     "sex": "",
-    "mail": "",
+    "mail": "@gmail.com",
     "day": 0,
     "month": 0,
     "year": 0,
