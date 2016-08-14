@@ -192,6 +192,28 @@
   {
     "name": {
       "en": {
+        "first": "Likey",
+        "last": "Lunin",
+        "father": ""
+      },
+      "ru": {
+        "first": "Ликей",
+        "last": "Лунин",
+        "father": ""
+      }
+    },
+    "sex": "",
+    "mail": "likey.lunin@gmail.com",
+    "day": 0,
+    "month": 0,
+    "year": 0,
+    "pass": "poi12345#"
+  },
+
+
+  {
+    "name": {
+      "en": {
         "first": "",
         "last": "",
         "father": ""
