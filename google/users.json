@@ -214,6 +214,29 @@
   {
     "name": {
       "en": {
+        "first": "Nick",
+        "last": "Chernikov",
+        "father": ""
+      },
+      "ru": {
+        "first": "Ник",
+        "last": "Черников",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "nick.chernikov.1986@gmail.com",
+    "day": 6,
+    "month": 6,
+    "year": 1986,
+    "pass": "qwerty54321"
+  },
+
+
+
+  {
+    "name": {
+      "en": {
         "first": "",
         "last": "",
         "father": ""
