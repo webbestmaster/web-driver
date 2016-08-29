@@ -233,6 +233,27 @@
   },
 
 
+  {
+    "name": {
+      "en": {
+        "first": "Ilon",
+        "last": "Mask",
+        "father": ""
+      },
+      "ru": {
+        "first": "Илон",
+        "last": "Маск",
+        "father": ""
+      }
+    },
+    "sex": "m",
+    "mail": "ilon.mask.me@gmail.com",
+    "day": 3,
+    "month": 3,
+    "year": 1983,
+    "pass": "jingle123#"
+  },
+
 
   {
     "name": {
